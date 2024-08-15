@@ -10,7 +10,7 @@
 
  
 
-Esta documentação descreve as transações e modelo utilizado para gerenciar e controlar o monitoramento dos ambientes SAP, que é feito pela consultoria NUMEN IT SOLUCOES EM TECNOLOGIA LTDA e enviado com a periodicidade SEMANAL via e-mail ao time de IT BUSINESS APPLICATION. 
+Esta documentação descreve as transações e modelo utilizado para gerenciar e controlar o monitoramento dos ambientes SAP, tanto ambientes de DEV , QAS ou PRD. 
 
  
 
