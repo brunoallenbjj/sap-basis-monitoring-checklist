@@ -19,47 +19,21 @@ Esta documentação descreve as transações e modelo utilizado para gerenciar e
 
 # Objetivo 
 
- 
-
-Neste documento o objetivo da aplicação das transações são:  
-
- 
-
 Estabilidade do Sistema 
 
- 
-
-Performance: 
-
- 
+Performance
 
 Segurança 
 
- 
-
 Gestão de Erros 
-
- 
 
 Planejamento e Controle 
 
- 
-
 Conformidade e Auditoria 
-
- 
 
 Otimização de Recursos  
 
- 
-
- 
-
- 
-
- 
-
-Transações utilizadas no monitoramento. 
+# Transações utilizadas no monitoramento. 
 
  
 
@@ -163,10 +137,4 @@ Visão geral: Configuração de trust relationships para comunicação segura.
 
 Monitoramento: Verificar se as configurações de trust estão corretas e se não houve alterações não autorizadas. 
 
- 
 
-Modelo de monitoramento 
-
- 
-
-A consultoria NUMEN IT, responsável pelo monitoramento do ambiente SAP, segue uma estrutura padrão com base nas transações citadas onde podemos avaliar pelo link: 
