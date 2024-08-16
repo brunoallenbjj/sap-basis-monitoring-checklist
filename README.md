@@ -1,140 +1,88 @@
+# SAP Environment Monitoring - Checklist.
+# Overview
+This document describes the transactions and model used to manage and control the monitoring of SAP environments, including DEV, QAS, or PRD environments.
 
-
-# Monitoramento de ambientes SAP - Checklist.
-
- 
-
- 
-
-# Visão Geral 
-
- 
-
-Esta documentação descreve as transações e modelo utilizado para gerenciar e controlar o monitoramento dos ambientes SAP, tanto ambientes de DEV , QAS ou PRD. 
-
- 
-
- 
-
-
-# Objetivo 
-
-Estabilidade do Sistema 
-
+# Objective
+System Stability
 Performance
+Security
+Error Management
+Planning and Control
+Compliance and Audit
+Resource Optimization
+Transactions used in monitoring.
 
-Segurança 
 
-Gestão de Erros 
+# ST22 - DUMP
 
-Planejamento e Controle 
+Overview: Displays error dumps in the system.
 
-Conformidade e Auditoria 
+Monitoring: Regularly check for error dumps to identify system issues. Configure alerts to notify of new dumps.
 
-Otimização de Recursos  
+# SM37 - JOB
 
-# Transações utilizadas no monitoramento. 
+Overview: Shows running jobs and execution history.
 
- 
+Monitoring: Check active jobs and history to ensure they are running as expected. Monitor execution times and possible failures.
 
-ST22 - DUMP 
+# SM58 - TRANSACTIONAL RFC
 
-Visão geral: Exibe dumps de erro no sistema. 
+Overview: Shows communication error messages between SAP systems.
 
-Monitoramento: Verificar regularmente por dumps de erro para identificar problemas no sistema. Configurar alertas para notificar sobre novos dumps. 
+Monitoring: Check for communication errors between SAP systems. Monitor the SM58 queue for pending messages.
 
- 
+# SM12 - TABLE LOCKS AND UNLOCKS
 
-SM37 - JOB 
+Overview: Displays table locks in the system.
 
-Visão geral: Mostra os jobs em execução e histórico de execuções. 
+Monitoring: Check active locks and resolve prolonged locks that may affect performance.
 
-Monitoramento: Verificar jobs ativos e histórico para garantir que estão sendo executados conforme o esperado. Monitorar tempos de execução e possíveis falhas. 
+# SM13 - UPDATE RECORD ADMINISTRATION
 
- 
+Overview: Monitors and administers update records.
 
-SM58 - RFC TRANSACIONAL 
+Monitoring: Ensure that update records are being processed correctly and there are no delays in updates.
 
-Visão geral: Mostra as mensagens de erro de comunicação entre sistemas SAP. 
+# SMLG - LOAD DISTRIBUTION
 
-Monitoramento: Verificar erros de comunicação entre sistemas SAP. Monitorar a fila SM58 para mensagens pendentes. 
+Overview: Manages load distribution among servers.
 
- 
+Monitoring: Monitor load balancing to avoid overloading specific servers.
 
-SM12 - BLOQUEIO E DESBLOQUEIO TABELAS 
+# SMGW - GATEWAY MONITOR
 
-Visão geral: Exibe bloqueios de tabelas no sistema. 
+Overview: Monitors the state of the gateway.
 
-Monitoramento: Verificar bloqueios ativos e resolver bloqueios prolongados que possam afetar o desempenho. 
+Monitoring: Check the availability and health of the gateway to ensure connectivity.
 
- 
+# DB02 - Overview, Alerts, Backup, Self-Monitoring
 
- 
+Overview: Monitors the SAP database.
 
- 
+Monitoring: Check performance metrics, alerts, backup status, and database health. Ensure internal database monitoring is active.
 
- 
+# SCC4 - ENVIRONMENT OPENING
 
- 
+Overview: Controls the opening of the environment.
 
-SM13 - ADMINISTRAR REGISTRO DE ATUALIZAÇÃO 
+Monitoring: Check if environment settings are correct and if there have been any unauthorized changes.
 
-Visão geral: Monitora e administra registros de atualização. 
+# SM20 - SECURITY AUDIT LOG ANALYSIS
 
-Monitoramento: Verificar se os registros de atualização estão sendo processados      corretamente e se não há atrasos nas atualizações. 
+Overview: Records security activities in the system.
 
- 
+Monitoring: Analyze logs to detect suspicious or unauthorized activities.
 
-SMLG - DISTRIBUIÇÃO DE CARGA 
+# SUIM - Extraction of users inactive for 45 days, Users with SAP_ALL
 
-Visão geral: Gerencia a distribuição de carga entre servidores. 
+Overview: Analyzes inactive users and users with elevated privileges.
 
-Monitoramento: Monitorar o balanceamento de carga para evitar sobrecarga em servidores específicos. 
+Monitoring: Check for inactive users and identify potential security issues related to elevated privileges.
 
- 
+# STRUST
 
-SMGW - GATEWAY MONITOR 
+Overview: Configures trust relationships for secure communication.
 
-Visão geral: Monitora o estado do gateway. 
-
-Monitoramento: Verificar a disponibilidade e saúde do gateway para garantir a conectividade. 
-
- 
-
-DB02 - Overview, Alerts, Backup, Self-Monitoring 
-
-Visão geral: Monitora o banco de dados SAP. 
-
-Monitoramento: Verificar métricas de desempenho, alertas, status do backup e saúde do banco de dados. Garantir que o monitoramento interno do banco de dados esteja ativo. 
-
- 
-
-SCC4 - ABERTURA DE AMBIENTE 
-
-Visão geral: Controla a abertura do ambiente. 
-
-Monitoramento: Verificar se as configurações de ambiente estão corretas e se não houve mudanças não autorizadas. 
-
- 
-
-SM20 - ANÁLISE DE LOG DE AUDITORIA DE SEGURANÇA 
-
-Visão geral: Registra atividades de segurança no sistema. 
-
-Monitoramento: Analisar logs para detectar atividades suspeitas ou não autorizadas. 
-
-SUIM - Extração de usuários 45 dias sem logar, Usuários com SAP_ALL 
-
-Visão geral: Analisa usuários inativos e usuários com privilégios elevados. 
-
-Monitoramento: Verificar usuários inativos e identificar potenciais problemas de segurança relacionados a privilégios elevados. 
-
- 
-
-STRUST 
-
-Visão geral: Configuração de trust relationships para comunicação segura. 
-
-Monitoramento: Verificar se as configurações de trust estão corretas e se não houve alterações não autorizadas. 
+Monitoring: Ensure trust settings are correct and there have been no unauthorized changes.
 
 
