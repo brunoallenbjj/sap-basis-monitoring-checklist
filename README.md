@@ -28,6 +28,10 @@ Clique em cada seção para expandir:
 ### 📋 Visão Geral  
 Exibe dumps de erro (ABAP runtime errors).  
 
+### 🎯 Valores de Referência  
+- **Dumps críticos**: ≤ 5 por dia (por ambiente)  
+- *Ambiente DEV*: ≤ 10 (durante desenvolvimento)  
+
 ### 🛠 Monitoramento Recomendado  
 - Verificar **diariamente** dumps críticos.  
 - Configurar alertas via **CCMS (RZ20)**.  
@@ -44,9 +48,13 @@ Exibe dumps de erro (ABAP runtime errors).
 ### 📋 Visão Geral  
 Monitora jobs em execução/histórico.  
 
+### 🎯 Valores de Referência  
+- **Jobs críticos**: 0% de falha  
+- **Jobs não-críticos**: ≤ 5% de falha  
+
 ### 🛠 Monitoramento Recomendado  
 - Filtrar jobs **cancelados/erros**.  
-- Verificar **long-running jobs**.  
+- Verificar **long-running jobs** (> 2 horas).  
 - Ações: Reagendar jobs falhos.  
 
 ### ⚠️ Riscos  
@@ -59,6 +67,10 @@ Monitora jobs em execução/histórico.
 
 ### 📋 Visão Geral  
 Monitora erros de comunicação entre sistemas SAP (RFCs).  
+
+### 🎯 Valores de Referência  
+- **RFCs com erro**: 0  
+- **RFCs "In Process"**: ≤ 1 hora de duração  
 
 ### 🛠 Monitoramento Recomendado  
 - Verificar filas com status **"Error"**.  
@@ -75,6 +87,9 @@ Monitora erros de comunicação entre sistemas SAP (RFCs).
 ### 📋 Visão Geral  
 Lista bloqueios de tabela no sistema.  
 
+### 🎯 Valores de Referência  
+- **Locks prolongados**: 0 (> 15 minutos)  
+
 ### 🛠 Monitoramento Recomendado  
 - Identificar bloqueios com mais de **15 minutos**.  
 - Ações: Contatar usuário ou encerrar bloqueios manualmente.  
@@ -89,6 +104,9 @@ Lista bloqueios de tabela no sistema.
 
 ### 📋 Visão Geral  
 Monitora registros de atualização (V1/V2).  
+
+### 🎯 Valores de Referência  
+- **Updates falhos**: 0%  
 
 ### 🛠 Monitoramento Recomendado  
 - Verificar updates com status **"Failed"**.  
@@ -105,6 +123,9 @@ Monitora registros de atualização (V1/V2).
 ### 📋 Visão Geral  
 Gerencia distribuição de carga entre servidores.  
 
+### 🎯 Valores de Referência  
+- **Desequilíbrio de carga**: < 10% entre servidores  
+
 ### 🛠 Monitoramento Recomendado  
 - Verificar **overload** em servidores específicos.  
 - Ações: Ajustar parâmetros de balanceamento.  
@@ -119,6 +140,9 @@ Gerencia distribuição de carga entre servidores.
 
 ### 📋 Visão Geral  
 Monitora conexões do SAP Gateway.  
+
+### 🎯 Valores de Referência  
+- **Threads ocupadas**: < 90% de utilização  
 
 ### 🛠 Monitoramento Recomendado  
 - Verificar **threads ocupadas**.  
@@ -135,6 +159,10 @@ Monitora conexões do SAP Gateway.
 ### 📋 Visão Geral  
 Monitora saúde do banco de dados SAP.  
 
+### 🎯 Valores de Referência  
+- **Espaço em disco**: ≥ 20% livre  
+- *Alerta crítico*: < 10% livre  
+
 ### 🛠 Monitoramento Recomendado  
 - Checar alertas de **espaço em disco**.  
 - Verificar status de **backups**.  
@@ -149,6 +177,9 @@ Monitora saúde do banco de dados SAP.
 
 ### 📋 Visão Geral  
 Controla acessos a clientes SAP.  
+
+### 🎯 Valores de Referência  
+- **Mudanças não autorizadas**: 0  
 
 ### 🛠 Monitoramento Recomendado  
 - Auditar **mudanças não autorizadas**.  
@@ -165,6 +196,10 @@ Controla acessos a clientes SAP.
 ### 📋 Visão Geral  
 Registra atividades de segurança.  
 
+### 🎯 Valores de Referência  
+- **Tentativas de login inválidas**: ≤ 5 por hora (por usuário)  
+- *Alerta de ataque*: > 10 tentativas  
+
 ### 🛠 Monitoramento Recomendado  
 - Buscar por **tentativas de login suspeitas**.  
 - Ações: Reportar a equipe de segurança.  
@@ -179,6 +214,10 @@ Registra atividades de segurança.
 
 ### 📋 Visão Geral  
 Audita usuários e permissões.  
+
+### 🎯 Valores de Referência  
+- **Usuários inativos (>45 dias)**: 0 em PRD  
+- **Usuários com SAP_ALL**: ≤ 5 (apenas administradores)  
 
 ### 🛠 Monitoramento Recomendado  
 - Identificar usuários **inativos >45 dias**.  
@@ -195,6 +234,9 @@ Audita usuários e permissões.
 ### 📋 Visão Geral  
 Gerencia certificados digitais.  
 
+### 🎯 Valores de Referência  
+- **Certificados expirados**: 0  
+
 ### 🛠 Monitoramento Recomendado  
 - Verificar **validade de certificados**.  
 - Ações: Renovar antes da expiração.  
@@ -203,17 +245,3 @@ Gerencia certificados digitais.
 - Certificados expirados quebram conexões.  
 
 </details>
-
-
-
-## 🚀 Como Contribuir  
-1. Faça um **fork** do repositório.  
-2. Adicione melhorias (ex: novas transações, scripts).  
-3. Envie um **Pull Request**.  
-
-📜 **Licença:** MIT  
-
-
-<div align="center">
-  <sub>Criado para operações SAP Basis mais eficientes.</sub>  
-</div>
