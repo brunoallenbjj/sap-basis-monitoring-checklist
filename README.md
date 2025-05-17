@@ -245,3 +245,15 @@ Gerencia certificados digitais.
 - Certificados expirados quebram conexões.  
 
 </details>
+
+
+## 🚀 Como Contribuir  
+1. Faça um **fork** do repositório.  
+2. Adicione melhorias (ex: novas transações, scripts).  
+3. Envie um **Pull Request**.  
+
+📜 **Licença:** MIT  
+
+<div align="center">
+  <sub>Criado  para operações SAP Basis mais eficientes e descomplicadas ;).</sub>  
+</div>
