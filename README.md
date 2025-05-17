@@ -255,5 +255,5 @@ Gerencia certificados digitais.
 📜 **Licença:** MIT  
 
 <div align="center">
-  <sub>Criado  para operações SAP Basis mais eficientes e descomplicadas ;).</sub>  
+  <sub>Criado para operações SAP Basis mais eficientes e descomplicadas ;).</sub>  
 </div>
