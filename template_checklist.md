@@ -4,12 +4,12 @@
 ![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-> **Documentação & Template com função de cada TCODE** para monitoramento de ambientes SAP (DEV, QAS, PRD).  
+> **Documentação interativa** para monitoramento de ambientes SAP (DEV, QAS, PRD).  
 
 ---
 
 ## 📌 Objetivo  
-Garantir a estabilidade, segurança e desempenho de sistemas SAP através de monitoramento proativo.  
+Garantir a estabilidade, segurança e desempenho de sistemas SAP.  
 
 ✅ **Estabilidade do Sistema**  
 ✅ **Segurança e Compliance**  
@@ -18,188 +18,55 @@ Garantir a estabilidade, segurança e desempenho de sistemas SAP através de mon
 
 ---
 
-## 🔍 Transações de Monitoramento que utilizo
+## 🔍 Transações Principais  
 
-Clique em cada seção para expandir:  
+### 🔴 ST22 - DUMP Analysis  
+- **Frequência**: Diária  
+- **Critério**: ≤ 5 dumps críticos/dia  
+- **Ação**: Corrigir programas problemáticos  
 
-<details>
-<summary><b>ST22 - DUMP Analysis</b></summary>
+### 🟠 SM37 - Job Monitor  
+- **Frequência**: Diária  
+- **Critério**: 0% falha em jobs críticos  
+- **Ação**: Reagendar jobs falhos  
 
-### 📋 Visão Geral  
-Exibe dumps de erro (ABAP runtime errors).  
+### 🟡 SM58 - RFC Errors  
+- **Frequência**: Horária  
+- **Critério**: 0 RFCs com erro  
+- **Ação**: Reprocessar RFCs pendentes  
 
-### 🛠 Monitoramento Recomendado  
-- Verificar **diariamente** dumps críticos.  
-- Configurar alertas via **CCMS (RZ20)**.  
-- Ações: Corrigir programas com falhas recorrentes.  
+### 🟢 SM12 - Table Locks  
+- **Frequência**: Contínuo  
+- **Critério**: 0 locks >15min  
+- **Ação**: Liberar locks manuais  
 
-### ⚠️ Riscos  
-- Dumps não tratados podem causar instabilidade.  
+### 🔵 DB02 - Database  
+- **Frequência**: Diária  
+- **Critério**: ≥20% espaço livre  
+- **Ação**: Limpar tablespaces  
 
-</details>
+---
 
-<details>
-<summary><b>SM37 - Job Monitor</b></summary>
+## ⚡ Quick Actions (Mobile)  
+1. **ST22** → Filtrar por "Terminated"  
+2. **SM37** → Ordenar por "End Time"  
+3. **SM58** → Buscar "Error" status  
 
-### 📋 Visão Geral  
-Monitora jobs em execução/histórico.  
+---
 
-### 🛠 Monitoramento Recomendado  
-- Filtrar jobs **cancelados/erros**.  
-- Verificar **long-running jobs**.  
-- Ações: Reagendar jobs falhos.  
+## 📅 Frequência Recomendada  
+| Ambiente | ST22 | SM37 | DB02 |  
+|----------|------|------|------|  
+| **PRD**  | 2x/d | 3x/d | 1x/d |  
+| **QAS**  | 1x/d | 1x/d | 1x/d |  
+| **DEV**  | 1x/2d| 1x/d | 1x/3d|  
 
-### ⚠️ Riscos  
-- Jobs críticos parados impactam processos.  
+---
 
-</details>
+## 🚨 Emergency Contacts  
+- **Basis Team**: +55 (11) 99999-9999  
+- **SAP Support**: 800-SAP-HELP  
 
-<details>
-<summary><b>SM58 - Transactional RFC</b></summary>
-
-### 📋 Visão Geral  
-Monitora erros de comunicação entre sistemas SAP (RFCs).  
-
-### 🛠 Monitoramento Recomendado  
-- Verificar filas com status **"Error"**.  
-- Ações: Reprocessar RFCs pendentes ou reiniciar conexões.  
-
-### ⚠️ Riscos  
-- RFCs travados podem paralisar integrações.  
-
-</details>
-
-<details>
-<summary><b>SM12 - Table Locks</b></summary>
-
-### 📋 Visão Geral  
-Lista bloqueios de tabela no sistema.  
-
-### 🛠 Monitoramento Recomendado  
-- Identificar bloqueios com mais de **15 minutos**.  
-- Ações: Contatar usuário ou encerrar bloqueios manualmente.  
-
-### ⚠️ Riscos  
-- Deadlocks podem afetar desempenho.  
-
-</details>
-
-<details>
-<summary><b>SM13 - Update Records</b></summary>
-
-### 📋 Visão Geral  
-Monitora registros de atualização (V1/V2).  
-
-### 🛠 Monitoramento Recomendado  
-- Verificar updates com status **"Failed"**.  
-- Ações: Reprocessar manualmente ou analisar logs.  
-
-### ⚠️ Riscos  
-- Updates não processados corrompem dados.  
-
-</details>
-
-<details>
-<summary><b>SMLG - Load Balancing</b></summary>
-
-### 📋 Visão Geral  
-Gerencia distribuição de carga entre servidores.  
-
-### 🛠 Monitoramento Recomendado  
-- Verificar **overload** em servidores específicos.  
-- Ações: Ajustar parâmetros de balanceamento.  
-
-### ⚠️ Riscos  
-- Desbalanceamento causa lentidão.  
-
-</details>
-
-<details>
-<summary><b>SMGW - Gateway Monitor</b></summary>
-
-### 📋 Visão Geral  
-Monitora conexões do SAP Gateway.  
-
-### 🛠 Monitoramento Recomendado  
-- Verificar **threads ocupadas**.  
-- Ações: Reiniciar serviço se necessário.  
-
-### ⚠️ Riscos  
-- Gateway inativo impede comunicações externas.  
-
-</details>
-
-<details>
-<summary><b>DB02 - Database Monitor</b></summary>
-
-### 📋 Visão Geral  
-Monitora saúde do banco de dados SAP.  
-
-### 🛠 Monitoramento Recomendado  
-- Checar alertas de **espaço em disco**.  
-- Verificar status de **backups**.  
-
-### ⚠️ Riscos  
-- Falha no banco paralisa o sistema.  
-
-</details>
-
-<details>
-<summary><b>SCC4 - Client Control</b></summary>
-
-### 📋 Visão Geral  
-Controla acessos a clientes SAP.  
-
-### 🛠 Monitoramento Recomendado  
-- Auditar **mudanças não autorizadas**.  
-- Ações: Bloquear clientes em manutenção.  
-
-### ⚠️ Riscos  
-- Acessos indevidos violam compliance.  
-
-</details>
-
-<details>
-<summary><b>SM20 - Security Audit Log</b></summary>
-
-### 📋 Visão Geral  
-Registra atividades de segurança.  
-
-### 🛠 Monitoramento Recomendado  
-- Buscar por **tentativas de login suspeitas**.  
-- Ações: Reportar a equipe de segurança.  
-
-### ⚠️ Riscos  
-- Brechas de segurança não detectadas.  
-
-</details>
-
-<details>
-<summary><b>SUIM - User Analysis</b></summary>
-
-### 📋 Visão Geral  
-Audita usuários e permissões.  
-
-### 🛠 Monitoramento Recomendado  
-- Identificar usuários **inativos >45 dias**.  
-- Checar atribuição de **SAP_ALL**.  
-
-### ⚠️ Riscos  
-- Privilégios excessivos aumentam riscos.  
-
-</details>
-
-<details>
-<summary><b>STRUST - SSL Certificates</b></summary>
-
-### 📋 Visão Geral  
-Gerencia certificados digitais.  
-
-### 🛠 Monitoramento Recomendado  
-- Verificar **validade de certificados**.  
-- Ações: Renovar antes da expiração.  
-
-### ⚠️ Riscos  
-- Certificados expirados quebram conexões.  
-
-</details>
+<div align="center">
+  <sub>📱 Template otimizado para mobile</sub>  
+</div>
